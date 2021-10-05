@@ -59,7 +59,7 @@ namespace Tayx.Graphy.Utils
 
         #region Methods -> Unity Callbacks
 
-        void Awake()
+        protected virtual void Awake()
         {
             if (_instance != null)
             {
