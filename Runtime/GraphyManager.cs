@@ -351,15 +351,9 @@ namespace Tayx.Graphy
 
         #region Methods -> Unity Callbacks
 
-        protected override void Awake()
-        {
-            base.Awake();
-            Init();
-        }
-
         private void Start()
         {
-            
+            Init();
         }
 
         private void OnDestroy()
