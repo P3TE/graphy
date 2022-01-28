@@ -127,6 +127,13 @@ namespace Tayx.Graphy
         
         [SerializeField] private    ModulePosition          m_graphModulePosition               = ModulePosition.TOP_RIGHT;
         
+        // Layout ------------------------------------------------------------------------
+
+        [SerializeField] private RectTransform topRightContainer;
+        [SerializeField] private RectTransform bottomRightContainer;
+        [SerializeField] private RectTransform topLeftContainer;
+        [SerializeField] private RectTransform bottomLeftContainer;
+        
         // Fps ---------------------------------------------------------------------------
 
         [SerializeField] private    ModuleState             m_fpsModuleState                    = ModuleState.FULL;
@@ -605,6 +612,11 @@ namespace Tayx.Graphy
             m_ramManager    .SetPosition(m_graphModulePosition);
             m_audioManager  .SetPosition(m_graphModulePosition);
             m_advancedData  .SetPosition(m_advancedModulePosition);
+            
+            m_fpsManager.transform.SetParent(ModulePositionToContainer(m_graphModulePosition));
+            m_ramManager.transform.SetParent(ModulePositionToContainer(m_graphModulePosition));
+            m_audioManager.transform.SetParent(ModulePositionToContainer(m_graphModulePosition));
+            m_advancedData.transform.SetParent(ModulePositionToContainer(m_advancedModulePosition));
 
             m_fpsManager    .SetState   (m_fpsModuleState);
             m_ramManager    .SetState   (m_ramModuleState);
@@ -620,6 +632,22 @@ namespace Tayx.Graphy
             }
 
             m_initialized = true;
+        }
+
+        private RectTransform ModulePositionToContainer(ModulePosition modulePosition)
+        {
+            switch (modulePosition)
+            {
+                case ModulePosition.TOP_RIGHT:
+                    return topRightContainer;
+                case ModulePosition.BOTTOM_RIGHT:
+                    return bottomRightContainer;
+                case ModulePosition.TOP_LEFT:
+                    return topLeftContainer;
+                case ModulePosition.BOTTOM_LEFT:
+                    return bottomLeftContainer;
+            }
+            return null;
         }
 
         private void CheckForHotkeyPresses()

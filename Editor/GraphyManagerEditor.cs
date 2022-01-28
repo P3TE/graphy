@@ -64,6 +64,11 @@ namespace Tayx.Graphy
 
 
         private SerializedProperty m_graphModulePosition;
+        
+        private SerializedProperty m_topRightContainer;
+        private SerializedProperty m_bottomRightContainer;
+        private SerializedProperty m_topLeftContainer;
+        private SerializedProperty m_bottomLeftContainer;
 
         #endregion
 
@@ -169,6 +174,11 @@ namespace Tayx.Graphy
             m_toggleActiveAlt = serObj.FindProperty("m_toggleActiveAlt");
 
             m_graphModulePosition = serObj.FindProperty("m_graphModulePosition");
+            
+            m_topRightContainer = serObj.FindProperty("topRightContainer");
+            m_bottomRightContainer = serObj.FindProperty("bottomRightContainer");
+            m_topLeftContainer = serObj.FindProperty("topLeftContainer");
+            m_bottomLeftContainer = serObj.FindProperty("bottomLeftContainer");
 
             #endregion
 
@@ -451,6 +461,32 @@ namespace Tayx.Graphy
                     tooltip: "Defines in which corner the modules will be located."
                 )
             );
+            
+            GUILayout.Space(15);
+
+            EditorGUILayout.PropertyField(m_topRightContainer, new GUIContent
+            (
+                text: "Top Right Container",
+                tooltip: "The container that contains all top right content."
+            ));
+            
+            EditorGUILayout.PropertyField(m_bottomRightContainer, new GUIContent
+            (
+                text: "Bottom Right Container",
+                tooltip: "The container that contains all bottom right content."
+            ));
+            
+            EditorGUILayout.PropertyField(m_topLeftContainer, new GUIContent
+            (
+                text: "Top Left Container",
+                tooltip: "The container that contains all top left content."
+            ));
+            
+            EditorGUILayout.PropertyField(m_bottomLeftContainer, new GUIContent
+            (
+                text: "Bottom Left Container",
+                tooltip: "The container that contains all bottom left content."
+            ));
 
             #endregion
 
