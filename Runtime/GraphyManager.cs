@@ -193,6 +193,10 @@ namespace Tayx.Graphy
         [SerializeField] private    ModulePosition          m_advancedModulePosition            = ModulePosition.BOTTOM_LEFT;
 
         [SerializeField] private    ModuleState             m_advancedModuleState               = ModuleState.FULL;
+        
+        // Editor ----------------------------------------------------------------------
+
+        [SerializeField] private    CanvasGroup             m_canvasGroup                       = null;
 
         #endregion
 
@@ -597,6 +601,11 @@ namespace Tayx.Graphy
             if (m_keepAlive)
             {
                 DontDestroyOnLoad(transform.root.gameObject);
+            }
+
+            if (m_canvasGroup != null)
+            {
+                m_canvasGroup.alpha = 1.0f;
             }
             
             m_fpsMonitor    = GetComponentInChildren(typeof(G_FpsMonitor),    true) as G_FpsMonitor;

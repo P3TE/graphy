@@ -139,6 +139,14 @@ namespace Tayx.Graphy
         private SerializedProperty m_advancedModuleState;
 
         #endregion
+        
+        #region Section -> Advanced Settings
+
+        private bool m_editorModuleInspectorToggle = true;
+
+        private SerializedProperty m_canvasGroup;
+
+        #endregion
 
         #endregion
 
@@ -241,7 +249,13 @@ namespace Tayx.Graphy
             m_advancedModuleState = serObj.FindProperty("m_advancedModuleState");
 
             #endregion
+            
+            #region Section -> Editor Settings
 
+            m_canvasGroup = serObj.FindProperty("m_canvasGroup");
+
+            #endregion
+            
         }
 
         #endregion
@@ -859,7 +873,25 @@ namespace Tayx.Graphy
             }
 
             #endregion;
+            
+            #region Section -> Editor Settings
 
+            m_editorModuleInspectorToggle = EditorGUILayout.Foldout
+            (
+                m_editorModuleInspectorToggle,
+                content: " [ EDITOR SETTINGS ]",
+                style: GraphyEditorStyle.FoldoutStyle
+            );
+
+            GUILayout.Space(5);
+
+            if (m_editorModuleInspectorToggle)
+            {
+                EditorGUILayout.PropertyField(m_canvasGroup);
+            }
+
+            #endregion;
+            
             EditorGUIUtility.labelWidth = defaultLabelWidth;
             EditorGUIUtility.fieldWidth = defaultFieldWidth;
 

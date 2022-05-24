@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 11439282}
   - component: {fileID: 11496292}
   - component: {fileID: 11480938}
+  - component: {fileID: 1046289987123956822}
   m_Layer: 5
   m_Name: '[Graphy]_LayoutGroups'
   m_TagString: Untagged
@@ -87,7 +88,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &11496292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +142,7 @@ MonoBehaviour:
   m_spectrumSize: 512
   m_advancedModulePosition: 3
   m_advancedModuleState: 0
+  m_canvasGroup: {fileID: 1046289987123956822}
 --- !u!114 &11480938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +174,18 @@ MonoBehaviour:
     UnityEvents:
       m_PersistentCalls:
         m_Calls: []
+--- !u!225 &1046289987123956822
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177638}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &909293451543372556
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,6 +814,10 @@ PrefabInstance:
     - target: {fileID: 7800522347690658609, guid: 78081648e28527242bb334a6bdf7bfce, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.025024414
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800522347690658609, guid: 78081648e28527242bb334a6bdf7bfce, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7800522348713255227, guid: 78081648e28527242bb334a6bdf7bfce, type: 3}
       propertyPath: m_AnchoredPosition.x
